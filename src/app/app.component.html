@@ -1,0 +1,10 @@
+<h1>{{ hello }}</h1>
+<app-counter></app-counter>
+
+<ul>
+  <li *ngFor="let car of cars">
+    <p>Name: {{ car.Name }}</p>
+    <div>Price: {{ car.Price | plusFive }}</div>
+    <div>Release Date: {{ car.Release | date : "dd.MM.yyyy" }}</div>
+  </li>
+</ul>
