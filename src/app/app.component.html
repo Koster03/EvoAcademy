@@ -1,0 +1,46 @@
+<div class="container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Название</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="author">
+      <th mat-header-cell *matHeaderCellDef>Автор</th>
+      <td mat-cell *matCellDef="let element">{{ element.author }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <form [formGroup]="modelForm">
+
+    <mat-form-field [color]="'accent'">
+      <mat-label> Название </mat-label>
+      <input matInput formControlName="name" [errorStateMatcher]="ErrorNameMatcher" />
+      <mat-error *ngIf="nameControl.invalid">
+        <span *ngIf="nameControl.errors?.['required']">Это поле обязательно</span>
+        <span *ngIf="!nameControl.errors?.['required'] && nameControl.errors?.['onlyRussianLetters']">Только русские буквы!!!</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field [color]="'accent'">
+      <mat-label> Автор </mat-label>
+      <input matInput formControlName="author" [errorStateMatcher]="ErrorAuthorMatcher" />
+      <mat-error *ngIf="authorControl.invalid">
+        <span *ngIf="authorControl.dirty && authorControl.errors?.['required']">Это поле обязательно</span>
+        <span *ngIf="!authorControl.errors?.['required'] && authorControl.errors?.['onlyRussianLetters']">Только русские буквы!!!</span>
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-fab extended color="primary" (click)="addData()" [disabled]="modelForm.invalid">
+      <mat-icon>done_all</mat-icon>
+      Добавить
+    </button>
+  </form>
+</div>
