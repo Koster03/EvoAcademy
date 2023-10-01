@@ -1,0 +1,14 @@
+<div class="page">
+    <div class="container">
+        <div class="col">
+            <span>Num</span>
+            <button (click)="onClick('nums')" class="button-30">{{!isNumsPaused ? 'Pause' : 'Resume'}} </button>
+            <span *ngFor="let num of nums">{{num}}</span>
+        </div>
+        <div class="col">
+            <span>Rundom value</span>
+            <button (click)="onClick('rnd')" class="button-30">{{!isRndPaused ? 'Pause' : 'Resume'}} </button>
+            <span *ngFor="let item2 of items2">{{item2}}</span>
+        </div>
+    </div>
+</div>
