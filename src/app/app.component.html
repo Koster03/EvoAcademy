@@ -1,0 +1,12 @@
+<div class="wrapper">
+    <section>
+        <div class="example-button-row">
+          <button mat-raised-button (click)="api.get()">GET</button>
+          <button mat-raised-button (click)="api.getWithParams()">GET (params postId=1)</button>
+          <button mat-raised-button color="primary" (click)="api.post()">POST</button>
+          <button mat-raised-button color="warn" (click)="api.getError()">GET (errors)</button>
+          <button mat-raised-button (click)="api.getWithHeader()">GET (X-Test: 1)</button>
+          <button mat-raised-button color="warn" (click)="api.delete()">DELETE</button>
+        </div>
+    </section>
+</div>
