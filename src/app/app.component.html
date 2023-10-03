@@ -7,6 +7,11 @@
           <button mat-raised-button color="warn" (click)="api.getError()">GET (errors)</button>
           <button mat-raised-button (click)="api.getWithHeader()">GET (X-Test: 1)</button>
           <button mat-raised-button color="warn" (click)="api.delete()">DELETE</button>
+          <a routerLink="/resolve" mat-raised-button>GET (from resolver)</a>
         </div>
     </section>
+    <section>
+      <router-outlet></router-outlet>
+    </section>
 </div>
+

@@ -7,10 +7,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import { HttpClientModule } from '@angular/common/http';
+import { ResolveDataComponent } from './components/resolve-data/resolve-data.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ResolveDataComponent
   ],
   imports: [
     BrowserModule,

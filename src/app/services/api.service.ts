@@ -46,9 +46,7 @@ export class ApiService {
       .get('https://jsonplaceholder.typicode.com/posts', {
         headers: { 'X-Test': '1' },
       })
-      .pipe(
-        map(data => JSON.stringify(data)),
-      )
+      .pipe(map((data) => JSON.stringify(data)))
       .subscribe((data) => console.log(data));
   }
 
@@ -56,5 +54,9 @@ export class ApiService {
     return this.http
       .delete('https://jsonplaceholder.typicode.com/posts/1')
       .subscribe((data) => console.log(data));
+  }
+
+  public getResolve() {
+    return this.http.get('https://jsonplaceholder.typicode.com/posts/1');
   }
 }
